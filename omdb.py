@@ -13,4 +13,4 @@ def getMovieRecommendations():
     movieName = clientInp
     
     
-
+# Tried to get Recommendations and renamed the variables.
