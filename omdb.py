@@ -13,11 +13,10 @@ infoJSON = movie.get_movie(userInp)
 infoAsObject = json.dumps(infoJSON)
 infoPython = json.loads(infoAsObject)
 
-# returns the genre and country of the user's movie
+# returns the genre of the user's movie
 def getUserInfo():
-    return infoPython['genre'], infoPython['country']
+    return infoPython['genre']
 
-# stores the genre and country in variables
-userGenre, userCountry = getUserInfo()
+# stores the genre in a variable
+userGenre = getUserInfo()
 print(userGenre)
-print(userCountry)
