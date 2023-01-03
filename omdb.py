@@ -1,16 +1,23 @@
 # in terminal --> pip3 install omdbapi
 
 import omdbapi
+import json
 from omdbapi.movie_search import GetMovie
 
-clientInp = input("what's your favorite movie?\n")
-movie = GetMovie(api_key="ebaa4487")
-print(movie.get_movie(clientInp))
-# print(movie.get_data('genre', 'language', 'imdbrating'))
-# print(movie.get_data('director', 'actors', 'awards', 'plot'))
+# gets the user's favorite movie
+userInp = input("what's your favorite movie?\n")
+movie = GetMovie(api_key='ebaa4487')
+infoJSON = movie.get_movie(userInp)
 
-def getMovieRecommendations():
-    movieName = clientInp
-    
-    
-# Tried to get Recommendations and renamed the variables.
+# converts the data using JSON for readability
+infoAsObject = json.dumps(infoJSON)
+infoPython = json.loads(infoAsObject)
+
+# returns the genre and country of the user's movie
+def getUserInfo():
+    return infoPython['genre'], infoPython['country']
+
+# stores the genre and country in variables
+userGenre, userCountry = getUserInfo()
+print(userGenre)
+print(userCountry)
